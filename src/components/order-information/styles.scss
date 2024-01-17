@@ -1,0 +1,87 @@
+@import "../../scss/variables.scss";
+
+h2{
+    color: $text-primary-color;
+    font-weight: 300;
+    text-decoration: underline;
+    margin: 2.5rem 0 2rem 0;
+}
+.form-order{
+  .row-two{
+    margin-top: 8.3px;
+  }
+  padding-bottom: 100px;
+
+  .form-label{
+      color: $text-primary-color;
+      font-weight: 500;
+  }
+  input, select{
+    border-color: #997127;
+    height: 52px;
+  }
+  .form-control:focus{
+    border-color: #ffe3af;
+    box-shadow: 0 0 0 0.2rem rgba(153, 113, 39,.25);
+  }
+  .button-submit{
+    background-color: $text-primary-color;
+    color: #fff;
+    padding: 12px 48px;
+    font-size: 1.5rem;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    transition: .3s;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    margin-top: 2rem;
+
+    &:hover{
+      border: 1px solid $text-primary-color;
+      background-color: transparent;
+      color: $text-primary-color;
+    }
+  }
+  .desc-email{
+    color: #929292;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
+  .select-dropdown select{
+    width: 100%;
+  }
+  .select-dropdown {
+    position: relative;
+    background-color: #fff;
+    border-radius: 4px;
+  }
+  .select-dropdown select {
+    font-size: 1rem;
+    font-weight: normal;
+    max-width: 100%;
+    padding: 8px 24px 8px 10px;
+    border-color: #997127;
+    border-radius: 4px;
+    background-color: transparent;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    appearance: none;
+  }
+  .select-dropdown select:active, .select-dropdown select:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  .select-dropdown:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    width: 0;
+    height: 0;
+    margin-top: -2px;
+    border-top: 5px solid #aaa;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+  }
+}

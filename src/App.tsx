@@ -1,5 +1,6 @@
 import CakesSection from './components/cakes';
 import Header from './components/header';
+import OrderInformation from './components/order-information';
 
 import './index.scss';
 import { CakeType } from './types';
@@ -37,6 +38,7 @@ function App() {
 
       <main>
         <CakesSection infoCakes={dataCakes} />
+        <OrderInformation />
       </main>
     </>
   );
