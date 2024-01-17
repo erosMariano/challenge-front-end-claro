@@ -1,0 +1,14 @@
+@import "./scss/variables.scss";
+
+*,body, html{
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+body {
+  background-color: $background-color;
+}
+.container{
+  max-width: 857px;
+}

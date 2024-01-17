@@ -1,0 +1,10 @@
+$background-color: #EBF6FC;
+$text-primary-color: #24457B;
+
+
+$mobile: 768px;
+@mixin to-mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
