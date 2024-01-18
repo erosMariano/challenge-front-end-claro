@@ -54,6 +54,7 @@ function OrderInformation({ cakeSelected }: OrderInformationProps) {
   const [inputTime, setInputTime] = useState('');
   const [selectedCake, setSelectedCake] = useState(cakeSelected.title);
   const [inputPhoneNumber, setInputPhoneNumber] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -78,21 +79,28 @@ function OrderInformation({ cakeSelected }: OrderInformationProps) {
 
   const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = formatPhoneNumber(e.target.value);
-    setValue('phone', value, { shouldValidate: true });
-
+    if (value.length === 12) {
+      setValue('phone', value, { shouldValidate: true });
+    }
     setInputPhoneNumber(value);
   };
 
   const onSubmit = async (data: OrderSchema) => {
-    await sendDataToDB(data);
-    handleChangeModal(true);
-    reset();
-
-    setInputDate('');
-    setInputPhoneNumber('');
-    setInputTime('');
+    setLoading(true);
+    try {
+      const dataResult = await sendDataToDB(data);
+      console.log(dataResult);
+      handleChangeModal(true);
+      reset();
+      setInputDate('');
+      setInputPhoneNumber('');
+      setInputTime('');
+    } catch (e) {
+      console.log('Error', e);
+    } finally {
+      setLoading(false);
+    }
   };
-  console.log(errors);
 
   useEffect(() => {
     if (cakeSelected.title) {
@@ -120,6 +128,7 @@ function OrderInformation({ cakeSelected }: OrderInformationProps) {
                   Name<span className="text-danger">*</span>
                 </label>
                 <input
+                  autoComplete="new-password"
                   type="text"
                   className="form-control"
                   id="name"
@@ -130,6 +139,7 @@ function OrderInformation({ cakeSelected }: OrderInformationProps) {
 
               <div className="w-100 pl-0 pl-md-2" style={{ marginTop: 17 }}>
                 <input
+                  autoComplete="new-password"
                   placeholder="Last"
                   type="text"
                   className="form-control"
@@ -146,6 +156,7 @@ function OrderInformation({ cakeSelected }: OrderInformationProps) {
                 </label>
 
                 <input
+                  autoComplete="new-password"
                   type="text"
                   value={inputDate}
                   {...register('deliveryDate', {
@@ -163,6 +174,7 @@ function OrderInformation({ cakeSelected }: OrderInformationProps) {
                   Preferred delivery time
                 </label>
                 <input
+                  autoComplete="new-password"
                   type="text"
                   className="form-control"
                   maxLength={5}
@@ -188,6 +200,7 @@ function OrderInformation({ cakeSelected }: OrderInformationProps) {
                 <input
                   placeholder="### ### ####"
                   type="text"
+                  autoComplete="new-password"
                   className="form-control"
                   maxLength={13}
                   value={inputPhoneNumber}
@@ -209,6 +222,7 @@ function OrderInformation({ cakeSelected }: OrderInformationProps) {
                   type="email"
                   className="form-control"
                   id="email"
+                  autoComplete="new-password"
                   {...register('email', {
                     required: 'O campo é obrigatório.',
                     pattern: {
@@ -321,7 +335,7 @@ function OrderInformation({ cakeSelected }: OrderInformationProps) {
 
           <div className="mb-3">
             <button type="submit" className="button-submit">
-              Order
+              {loading ? 'Sending...' : 'Order'}
             </button>
           </div>
         </div>
