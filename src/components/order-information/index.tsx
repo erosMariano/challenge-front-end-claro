@@ -32,7 +32,9 @@ const orderFormSchema = z.object({
   country: z.string().optional(),
   cake: z.string().min(3, { message: 'Select a cake' })
 });
-export type OrderSchema = z.infer<typeof orderFormSchema>;
+export type OrderSchema = z.infer<typeof orderFormSchema> & {
+  [key: string]: string | undefined;
+};
 
 interface OrderInformationProps {
   cakeSelected: CakeType;
@@ -88,8 +90,7 @@ function OrderInformation({ cakeSelected }: OrderInformationProps) {
   const onSubmit = async (data: OrderSchema) => {
     setLoading(true);
     try {
-      const dataResult = await sendDataToDB(data);
-      console.log(dataResult);
+      await sendDataToDB(data);
       handleChangeModal(true);
       reset();
       setInputDate('');
