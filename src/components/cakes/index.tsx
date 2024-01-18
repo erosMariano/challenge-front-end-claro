@@ -4,8 +4,9 @@ import './styles.scss';
 
 interface CakesSectionProps {
   infoCakes: CakeType[];
+  handleSelectedCake(value: number): void;
 }
-function CakesSection({ infoCakes }: CakesSectionProps) {
+function CakesSection({ infoCakes, handleSelectedCake }: CakesSectionProps) {
   return (
     <div className="container cake-section">
       <h2>
@@ -15,7 +16,11 @@ function CakesSection({ infoCakes }: CakesSectionProps) {
 
       <div className="row">
         {infoCakes.map((cake) => (
-          <CakesElement cake={cake} key={cake.id} />
+          <CakesElement
+            handleSelectedCake={handleSelectedCake}
+            cake={cake}
+            key={cake.id}
+          />
         ))}
       </div>
     </div>

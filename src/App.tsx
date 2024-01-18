@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import CakesSection from './components/cakes';
 import Header from './components/header';
 import OrderInformation from './components/order-information';
@@ -6,6 +8,16 @@ import './index.scss';
 import { CakeType } from './types';
 
 function App() {
+  const [selectedCake, setSelectedCake] = useState<CakeType>({
+    id: 0,
+    title: '',
+    urlImage: ''
+  });
+
+  function handleSelectedCake(value: number) {
+    const [selected] = dataCakes.filter((el) => el.id === value);
+    setSelectedCake(selected);
+  }
   const dataCakes: CakeType[] = [
     {
       title: 'Torta de morango com champagne para o réveillon',
@@ -28,6 +40,7 @@ function App() {
       id: 4
     }
   ];
+
   return (
     <>
       <Header
@@ -37,8 +50,11 @@ function App() {
       />
 
       <main>
-        <CakesSection infoCakes={dataCakes} />
-        <OrderInformation />
+        <CakesSection
+          handleSelectedCake={handleSelectedCake}
+          infoCakes={dataCakes}
+        />
+        <OrderInformation cakeSelected={selectedCake} />
       </main>
     </>
   );

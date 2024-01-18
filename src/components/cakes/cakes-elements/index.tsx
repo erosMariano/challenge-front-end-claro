@@ -2,14 +2,16 @@ import { CakeType } from '../../../types';
 import './styles.scss';
 interface CakesElementProps {
   cake: CakeType;
+  handleSelectedCake(value: number): void;
 }
-function CakesElement({ cake }: CakesElementProps) {
+function CakesElement({ cake, handleSelectedCake }: CakesElementProps) {
   return (
     <div className="col-md-6 mt-4">
       <div className="d-flex">
         <div className="cntr">
           <label htmlFor={String(cake.id + cake.title)} className="btn-radio">
             <input
+              onChange={() => handleSelectedCake(cake.id)}
               type="radio"
               id={String(cake.id + cake.title)}
               name="radio-grp"

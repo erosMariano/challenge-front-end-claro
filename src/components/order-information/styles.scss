@@ -1,54 +1,73 @@
-@import "../../scss/variables.scss";
+@import '../../scss/variables.scss';
 
-h2{
-    color: $text-primary-color;
-    font-weight: 300;
-    text-decoration: underline;
-    margin: 2.5rem 0 2rem 0;
+input[type='time']::-webkit-calendar-picker-indicator {
+  background: none;
 }
-.form-order{
-  .row-two{
-    margin-top: 8.3px;
+
+h2 {
+  color: $text-primary-color;
+  font-weight: 300;
+  text-decoration: underline;
+  margin: 2.5rem 0 2rem 0;
+}
+.form-order {
+  .icon-input {
+    position: absolute;
+    right: 15px;
+    top: 46px;
+    width: 24px;
+    opacity: 0.5;
+  }
+  .am-clock {
+    position: absolute;
+    top: 46px;
+    left: 76px;
+    color: $text-primary-color;
+    cursor: pointer;
+  }
+  .row-two {
+    margin-top: 31px;
   }
   padding-bottom: 100px;
 
-  .form-label{
-      color: $text-primary-color;
-      font-weight: 500;
+  .form-label {
+    color: $text-primary-color;
+    font-weight: 500;
   }
-  input, select{
+  input,
+  select {
     border-color: #997127;
     height: 52px;
   }
-  .form-control:focus{
+  .form-control:focus {
     border-color: #ffe3af;
-    box-shadow: 0 0 0 0.2rem rgba(153, 113, 39,.25);
+    box-shadow: 0 0 0 0.2rem rgba(153, 113, 39, 0.25);
   }
-  .button-submit{
+  .button-submit {
     background-color: $text-primary-color;
     color: #fff;
     padding: 12px 48px;
     font-size: 1.5rem;
     border-radius: 100px;
     border: 1px solid transparent;
-    transition: .3s;
+    transition: 0.3s;
     cursor: pointer;
     display: block;
     margin: 0 auto;
     margin-top: 2rem;
 
-    &:hover{
+    &:hover {
       border: 1px solid $text-primary-color;
       background-color: transparent;
       color: $text-primary-color;
     }
   }
-  .desc-email{
+  .desc-email {
     color: #929292;
     font-size: 0.875rem;
     margin-top: 0.5rem;
   }
-  .select-dropdown select{
+  .select-dropdown select {
     width: 100%;
   }
   .select-dropdown {
@@ -64,16 +83,17 @@ h2{
     border-color: #997127;
     border-radius: 4px;
     background-color: transparent;
-      -webkit-appearance: none;
-      -moz-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
   }
-  .select-dropdown select:active, .select-dropdown select:focus {
+  .select-dropdown select:active,
+  .select-dropdown select:focus {
     outline: none;
     box-shadow: none;
   }
   .select-dropdown:after {
-    content: "";
+    content: '';
     position: absolute;
     top: 50%;
     right: 8px;
