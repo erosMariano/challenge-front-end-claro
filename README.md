@@ -1,30 +1,38 @@
-# React + TypeScript + Vite
+<img src="public/images/readme/name_readme.png">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1 id="sobre" style="margin-top: 20px; margin-bottom: 20px; text-align: center;"><strong>Cake Order Form
+</strong></h1>
 
-Currently, two official plugins are available:
+<img src="public/images/readme/hero.png">
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> Esse é um projeto de desenvolvimento Front-End, com integração com API sobre encomenda de bolos! 🎂
 
-## Expanding the ESLint configuration
+## Como instalar
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+* Para baixar o projeto, siga as instruções abaixo:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```
+1. git clone https://github.com/erosMariano/challenge-front-end-claro.git
+2. cd challenge-front-end-claro
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+* Instale as dependências e inicie o servidor:
+
+```
+3. npm install
+4. npm run dev
+```
+
+## Tecnologias do Projeto
+
+- [React Hook Form](https://react-hook-form.com/)
+- [Zod](https://zod.dev/)
+    - Utilizei o React Hook Form + Zod para a validação do formulário.
+
+- [Typescript](https://www.typescriptlang.org/)
+    - Utilizei o Typescript pois ele adiciona recursos para construção de larga escala, como tipagem do código, orientação a objeto e tratabilidade do código em tempo real.
+- [Prettier](https://prettier.io/)
+- [Eslint](https://eslint.org/)
+    - Utilizei o Eslint e o Prettier para a padronização do código durante o desenvolvimento e em um cenário o qual entre uma pessoa ou mais no projeto, o código não distoa.
+- [Sass](https://sass-lang.com/)
+- [Bootstrap](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
