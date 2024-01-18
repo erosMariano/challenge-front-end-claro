@@ -34,5 +34,9 @@
 - [Prettier](https://prettier.io/)
 - [Eslint](https://eslint.org/)
     - Utilizei o Eslint e o Prettier para a padronização do código durante o desenvolvimento e em um cenário o qual entre uma pessoa ou mais no projeto, o código não distoa.
+
+- [JsonPlaceholder](https://jsonplaceholder.typicode.com/)
+   - Api utilizada para o envio do formulário
+
 - [Sass](https://sass-lang.com/)
 - [Bootstrap](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
