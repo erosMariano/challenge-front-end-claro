@@ -1,14 +1,13 @@
-const formatPhoneNumber = (inputPhoneNumber: string): string => {
+export const formatPhoneNumber = (inputPhoneNumber: string): string => {
   const cleanedPhoneNumber = inputPhoneNumber.replace(/[^\d]/g, '');
 
-  if (cleanedPhoneNumber.length === 10) {
-    const areaCode = cleanedPhoneNumber.slice(0, 3);
-    const firstPart = cleanedPhoneNumber.slice(3, 6);
-    const secondPart = cleanedPhoneNumber.slice(6, 10);
-    return `${areaCode} ${firstPart} ${secondPart}`;
-  } else {
+  if (cleanedPhoneNumber.length <= 3) {
     return cleanedPhoneNumber;
+  } else {
+    const areaCode = cleanedPhoneNumber.slice(0, 3);
+    const remainingDigits = cleanedPhoneNumber.slice(3);
+
+    const formattedNumber = `${areaCode} ${remainingDigits.slice(0, 3)} ${remainingDigits.slice(3, 7) || ''}`;
+    return formattedNumber.trim();
   }
 };
-
-export default formatPhoneNumber;

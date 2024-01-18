@@ -4,8 +4,9 @@ import './styles.scss';
 
 import { CakeType } from '../../types';
 import formatInputDate from '../../utils/formatDate';
-import formatPhoneNumber from '../../utils/formatPhone';
+import { formatPhoneNumber } from '../../utils/formatPhone';
 import formatTime from '../../utils/formatTime';
+import { sendDataToDB } from '../../utils/sendDataToDB';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -40,6 +41,7 @@ function OrderInformation({ cakeSelected }: OrderInformationProps) {
     register,
     handleSubmit,
     setValue,
+    reset,
     formState: { errors }
   } = useForm<OrderSchema>({
     resolver: zodResolver(orderFormSchema)
@@ -71,12 +73,16 @@ function OrderInformation({ cakeSelected }: OrderInformationProps) {
 
   const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = formatPhoneNumber(e.target.value);
+    console.log(value);
     setInputPhoneNumber(value);
   };
 
-  const onSubmit = (data: OrderSchema) => {
+  const onSubmit = async (data: OrderSchema) => {
     console.log(data);
+    await sendDataToDB();
+    reset();
   };
+  console.log(errors);
 
   useEffect(() => {
     if (cakeSelected.title) {
@@ -84,7 +90,6 @@ function OrderInformation({ cakeSelected }: OrderInformationProps) {
     }
     setSelectedCake(cakeSelected.title);
   }, [cakeSelected, setValue]);
-
   return (
     <div className="container">
       <h2>Order Information</h2>
@@ -131,9 +136,13 @@ function OrderInformation({ cakeSelected }: OrderInformationProps) {
                   type="tel"
                   className="form-control"
                   id="phone"
-                  maxLength={12}
+                  maxLength={13}
                   value={inputPhoneNumber}
                   {...register('phone', {
+                    pattern: {
+                      value: /^\d{3} \d{3} \d{4}$/,
+                      message: ''
+                    },
                     onChange: (e) => handlePhoneNumberChange(e)
                   })}
                 />
