@@ -18,25 +18,26 @@ function App() {
     const [selected] = dataCakes.filter((el) => el.id === value);
     setSelectedCake(selected);
   }
+
   const dataCakes: CakeType[] = [
     {
-      title: 'Torta de morango com champagne para o réveillon',
-      urlImage: 'images/cake1.jpg',
+      title: 'Strawberry Champagne Cake for New Year Eve',
+      urlImage: 'images/strawberry-champagne-cake-new-years-eve.jpg',
       id: 1
     },
     {
-      title: 'Bolo de chocolate com morango',
-      urlImage: 'images/cake2.jpg',
+      title: 'Chocolate Cake with Strawberries',
+      urlImage: 'images/chocolate-cake-with-strawberries.jpg',
       id: 2
     },
     {
-      title: 'Caramel Cappuccino Cake Bolo de Caramelo com Cappuccino',
-      urlImage: 'images/cake3.jpg',
+      title: 'Caramel Cappuccino Cake',
+      urlImage: 'images/caramel-cappuccino-cake.jpg',
       id: 3
     },
     {
-      title: 'Bolo de festa colorico',
-      urlImage: 'images/cake4.jpg',
+      title: 'Colorful Party Cake',
+      urlImage: 'images/colorful-party-cake',
       id: 4
     }
   ];

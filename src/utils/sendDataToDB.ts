@@ -1,5 +1,7 @@
 import { OrderSchema } from '../components/order-information';
 
+import { sendEmail } from './sendEmail';
+
 export async function sendDataToDB(data: OrderSchema) {
   if (!data.name && !data.phone && !data.email && !data.cake) {
     throw new Error(`Invalid Data`);
@@ -13,7 +15,12 @@ export async function sendDataToDB(data: OrderSchema) {
       },
       body: JSON.stringify(filteredData)
     });
-    if (!res.ok) {
+    const sendEmailData = await sendEmail({
+      email: data.email,
+      name: data.name,
+      cake: data.cake
+    });
+    if (!res.ok || !sendEmailData) {
       throw new Error(`HTTP error! Status: ${res.status}`);
     }
     const result = await res.text();
