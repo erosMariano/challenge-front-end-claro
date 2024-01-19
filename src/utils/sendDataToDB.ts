@@ -1,14 +1,11 @@
 import { OrderSchema } from '../components/order-information';
 
 export async function sendDataToDB(data: OrderSchema) {
-  console.log(data);
-
   if (!data.name && !data.phone && !data.email && !data.cake) {
     throw new Error(`Invalid Data`);
   }
   try {
     const filteredData = removeEmptyProperties(data);
-    console.log(filteredData);
     const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
       method: 'POST',
       headers: {
