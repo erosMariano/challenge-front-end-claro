@@ -4,9 +4,9 @@ interface SendEmailProps {
   cake: string;
 }
 export async function sendEmail({ name, email, cake }: SendEmailProps) {
-  const serviceId = import.meta.env.SERVICE_ID;
-  const templateId = import.meta.env.TEMPLATE_ID;
-  const publicKey = import.meta.env.PUBLIC_KEY;
+  const serviceId = import.meta.env.VITE_SERVICE_ID;
+  const templateId = import.meta.env.VITE_TEMPLATE_ID;
+  const publicKey = import.meta.env.VITE_PUBLIC_KEY;
 
   const data = {
     service_id: serviceId,
@@ -16,7 +16,7 @@ export async function sendEmail({ name, email, cake }: SendEmailProps) {
       from_name: name,
       from_email: email,
       from_cake: cake,
-      from_url_cake: `https://challenge-front-end-claro.vercel.app/images/${createSlug(name)}.jpg`
+      from_url_cake: `https://challenge-front-end-claro.vercel.app/images/${createSlug(cake)}.jpg`
     }
   };
 

@@ -37,7 +37,7 @@ function App() {
     },
     {
       title: 'Colorful Party Cake',
-      urlImage: 'images/colorful-party-cake',
+      urlImage: 'images/colorful-party-cake.jpg',
       id: 4
     }
   ];
