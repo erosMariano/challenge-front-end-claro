@@ -16,6 +16,15 @@
 2. cd challenge-front-end-claro
 ```
 
+* Crie um .env seguindo o .env.example e coloque os dados necessários das chaves (Chaves de conexão do EmailJS)
+
+```
+VITE_SERVICE_ID=serviceid
+VITE_TEMPLATE_ID=templateid
+VITE_PUBLIC_KEY=publickey
+```
+
+
 * Instale as dependências e inicie o servidor:
 
 ```
