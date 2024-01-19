@@ -24,7 +24,9 @@
 ```
 
 ## Tecnologias do Projeto
-
+- [EmailJs](https://www.emailjs.com/)
+  - Através da API do EmailJs estou enviando uma resposta aos usuários ao fazerem um pedido no site "Cake Order Form"
+  
 - [React Hook Form](https://react-hook-form.com/)
 - [Zod](https://zod.dev/)
     - Utilizei o React Hook Form + Zod para a validação do formulário.
@@ -40,3 +42,4 @@
 
 - [Sass](https://sass-lang.com/)
 - [Bootstrap](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
+
