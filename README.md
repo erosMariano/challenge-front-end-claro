@@ -25,8 +25,9 @@
 
 ## Tecnologias do Projeto
 - [EmailJs](https://www.emailjs.com/)
-  - Através da API do EmailJs estou enviando uma resposta aos usuários ao fazerem um pedido no site "Cake Order Form"
+  - Como adicional, integrei a API do EmailJS para enviar uma confirmação de pedido ao usuário após o preenchimento do formulário para agregar na experiência trazendo um feedback do pedido.
   
+
 - [React Hook Form](https://react-hook-form.com/)
 - [Zod](https://zod.dev/)
     - Utilizei o React Hook Form + Zod para a validação do formulário.
