@@ -22,7 +22,7 @@ function App() {
   const dataCakes: CakeType[] = [
     {
       title: 'Strawberry Champagne Cake for New Year Eve',
-      urlImage: 'images/strawberry-champagne-cake-new-years-eve.jpg',
+      urlImage: 'images/strawberry-champagne-cake-for-new-year-eve.jpg',
       id: 1
     },
     {
